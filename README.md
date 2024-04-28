@@ -1,3 +1,6 @@
+## Live Link:
+   https://fancode-assignment.vercel.app/
+
 ## Getting Started
 
 Follow these steps to get this project up and running on your local machine.
