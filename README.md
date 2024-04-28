@@ -9,7 +9,7 @@ Make sure you have Node.js and npm (or yarn) installed on your system.
 ### Installation
 
 1. Clone the repository to your local machine:
-   git@github.com:suthargk/fancode-assignment.git
+   `git@github.com:suthargk/fancode-assignment.git`
 2. Install dependencies using npm:
    npm install
 
