@@ -1,13 +1,22 @@
 import { useState } from "react";
 
-const Header = ({ activeGenreId, genres, handleGenre }) => {
+const Header = ({
+  genres,
+  isAllKeywordSelected,
+  selectedGenres,
+  handleGenreSelect,
+  setMovies,
+}) => {
   const [isLeftVisible, setIsLeftVisible] = useState(false);
   const [isRightVisible, setIsRightVisible] = useState(true);
+
   return (
     <div className="bg-[#242424] p-4 pt-2">
-      <h1 className="text-[#F0283C] font-bold text-2xl uppercase inline-block">
-        MovieFlix
-      </h1>
+      <div className="flex justify-between">
+        <h1 className="text-[#F0283C] font-bold text-2xl uppercase inline-block">
+          MovieFlix
+        </h1>
+      </div>
       <div className="relative">
         {isLeftVisible ? (
           <div className="absolute -left-1 top-0 h-full w-10  bg-gradient-to-r from-[#242424e6] to-[#4848482b]"></div>
@@ -37,9 +46,11 @@ const Header = ({ activeGenreId, genres, handleGenre }) => {
           }}
         >
           <button
-            onClick={() => handleGenre("")}
+            onClick={() => {
+              handleGenreSelect("All");
+            }}
             className={`${
-              activeGenreId === "" ? "bg-[#F0283C]" : "bg-[#484848]"
+              isAllKeywordSelected ? "bg-[#F0283C]" : "bg-[#484848]"
             } min-w-fit rounded text-sm font-normal px-3 py-1  text-[#F5F5F5]`}
           >
             All
@@ -49,10 +60,12 @@ const Header = ({ activeGenreId, genres, handleGenre }) => {
               <button
                 key={genre.id}
                 onClick={() => {
-                  handleGenre(genre.id);
+                  handleGenreSelect(genre.id);
                 }}
                 className={`${
-                  genre.id === activeGenreId ? "bg-[#F0283C]" : "bg-[#484848]"
+                  selectedGenres.includes(genre.id)
+                    ? "bg-[#F0283C]"
+                    : "bg-[#484848]"
                 } min-w-fit rounded text-sm font-normal px-3 py-1 text-[#F5F5F5]`}
               >
                 {genre.name}

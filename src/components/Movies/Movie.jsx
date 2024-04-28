@@ -1,11 +1,19 @@
 import StarIcon from "../../assets/Icons/StarIcon";
 
-const Movie = ({ movie }) => {
+const Movie = ({ handleGetMovie, movie }) => {
   return (
-    <div className="flex flex-col gap-2 text-white text-xs w-full">
+    <div
+      onClick={() => {
+        handleGetMovie(
+          movie.id,
+          `https://image.tmdb.org/t/p/w400${movie.poster_path}`
+        );
+      }}
+      className="cursor-pointer flex flex-col gap-2 text-white text-xs w-full"
+    >
       <div className="aspect-square">
         <img
-          src={`https://image.tmdb.org/t/p/w200${movie.poster_path}`}
+          src={`https://image.tmdb.org/t/p/w400${movie.poster_path}`}
           className="rounded w-full"
         />
       </div>
