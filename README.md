@@ -36,4 +36,4 @@ To start the development server, run the following command:
 
 ### Not Covered:
 
-1. Search functionality: There's no mention of how to implement a search feature in the README. Adding instructions on how users can search for movies within the application would be beneficial. This could involve guidance on integrating search functionality using React components or any relevant libraries.
+1. Search functionality
